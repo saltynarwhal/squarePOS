@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.saltynarwhal.squarepos" version="0.0.1">
+    <name>square-POS-plugin</name>
+
+    <description>An Cordova plugin that allows users to generate a square transaction that can be completed in the Square POS. Will return transaction details.</description>
+    <license>MIT</license>
+
+    <keywords>cordova,android,PCI,square,POS,mobilepayments,payments,credit,creditcard</keywords>
+    <repo>https://github.com/saltynarwhal/squarePOS.git</repo>
+    <issue>https://github.com/saltynarwhal/squarePOS/issues</issue>
+
+    <js-module src="www/squarePOSplugin.js" name="squarePOS">
+        <clobbers target="window.plugins.squarePOS" />
+        <clobbers target="cordova.plugins.squarePOS" />
+        <clobbers target="plugin.squarePOS" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="squarePOS">
+                <param name="android-package" value="com.saltynarwhal.cordova.plugin.squarePOS"/>
+            </feature>
+        </config-file>
+
+        <framework src="src/android/config.gradle" custom="true" type="gradleReference" />
+        <framework src="com.android.support:appcompat-v7:25.3.1" />
+        <framework src="com.android.support:support-v4:27.0.1" />
+        <source-file src="src/android/squarePOS.java" target-dir="src/com/saltynarwhal/cordova/plugin" />
+        <source-file src="src/android/AlertDialogHelper.java" target-dir="src/com/saltynarwhal/cordova/plugin" />
+
+    </platform>
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="squarePOS">
+                <param name="ios-package" value="squarePOS" onload="false"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/squarePOS.h" />
+        <source-file src="src/ios/squarePOS.m" />
+
+        <config-file target="*-Info.plist">
+          <key>LSApplicationQueriesSchemes</key>
+          <array>
+            <string>square-commerce-v1</string>
+          </array>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+          <array>
+            <dict>
+              <key>CFBundleTypeRole</key>
+              <string>Editor</string>
+              <key>CFBundleURLName</key>
+              <string>com.yesco.serviziofieldservice</string>
+              <key>CFBundleURLSchemes</key>
+              <array>
+                <string>squarePOSplugin</string>
+              </array>
+            </dict>
+          </array>
+        </config-file>
+        
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="OpenGLES.framework"/>
+        <framework src="Security.framework"/>
+        <framework src="UIKit.framework"/>
+        <framework src="libc++.dylib"/>
+    </platform>
+
+</plugin>

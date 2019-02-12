@@ -1,0 +1,3 @@
+dependencies {
+  compile 'com.squareup.sdk:point-of-sale-sdk:2.+'
+}
