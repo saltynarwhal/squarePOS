@@ -1,15 +1,15 @@
 /********* squarePOSplugin.m Cordova Plugin Implementation *******/
 
-#import "squarePOSplugin.h"
+#import "squarePOS.h"
 #import <Cordova/CDVPlugin.h>
 
-@interface squarePOSplugin ()
+@interface squarePOS ()
 
 @property (strong, nonatomic) NSString* callbackId;
 
 @end
 
-@implementation squarePOSplugin
+@implementation squarePOS
 
 - (void) startTransaction:(CDVInvokedUrlCommand*) command {
   self.callbackId = command.callbackId;

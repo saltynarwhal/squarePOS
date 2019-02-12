@@ -11,7 +11,7 @@
     <repo>https://github.com/saltynarwhal/squarePOS.git</repo>
     <issue>https://github.com/saltynarwhal/squarePOS/issues</issue>
 
-    <js-module src="www/squarePOSplugin.js" name="squarePOS">
+    <js-module src="www/squarePOS.js" name="squarePOS">
         <clobbers target="window.plugins.squarePOS" />
         <clobbers target="cordova.plugins.squarePOS" />
         <clobbers target="plugin.squarePOS" />
@@ -65,7 +65,7 @@
             </dict>
           </array>
         </config-file>
-        
+
         <framework src="MobileCoreServices.framework"/>
         <framework src="OpenGLES.framework"/>
         <framework src="Security.framework"/>
